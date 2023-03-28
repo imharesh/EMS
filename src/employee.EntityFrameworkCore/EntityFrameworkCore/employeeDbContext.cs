@@ -1,4 +1,5 @@
 ﻿using employee.Emps;
+using employee.HRS;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -27,6 +28,8 @@ public class employeeDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Emp> Emps { get; set; }
+    public DbSet<HR> HRS { get; set; }
+
 
     #region Entities from the modules
 
@@ -83,6 +86,21 @@ public class employeeDbContext :
             b.ToTable(employeeConsts.DbTablePrefix + "Employee", employeeConsts.DbSchema);
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+        });
+
+
+        builder.Entity<HR>(b =>
+        {
+            b.ToTable(employeeConsts.DbTablePrefix + "HRS",
+                employeeConsts.DbSchema);
+
+            b.ConfigureByConvention();
+
+            b.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(HRConsts.MaxNameLength);
+
+            b.HasIndex(x => x.Name);
         });
     }
 }
