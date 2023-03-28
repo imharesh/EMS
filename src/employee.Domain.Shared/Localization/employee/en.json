@@ -26,6 +26,9 @@
     "Enum:Department.5": "Horror",
     "Enum:Department.6": "Science",
     "Enum:Department.7": "Science fiction",
-    "Enum:Department.8": "Poetry"
+    "Enum:Department.8": "Poetry",
+    "EmpDeletionConfirmationMessage": "Are you sure to delete the Emp '{0}'?",
+    "SuccessfullyDeleted": "Successfully deleted!"
+
   }
 }
