@@ -4,8 +4,8 @@
     "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
-    "Menu:BookStore": "employee",
-    "Menu:Books": "Emps",
+    "Menu:Empstore": "employee",
+    "Menu:Emps": "Emps",
     "Actions": "Actions",
     "Close": "Close",
     "Delete": "Delete",
@@ -28,7 +28,12 @@
     "Enum:Department.7": "Science fiction",
     "Enum:Department.8": "Poetry",
     "EmpDeletionConfirmationMessage": "Are you sure to delete the Emp '{0}'?",
-    "SuccessfullyDeleted": "Successfully deleted!"
+    "SuccessfullyDeleted": "Successfully deleted!",
+    "Permission:employee": "Emps",
+    "Permission:Emps": "Emps Management",
+    "Permission:Emps.Create": "Creating new Emps",
+    "Permission:Emps.Edit": "Editing the Emps",
+    "Permission:Emps.Delete": "Deleting the Emps"
 
   }
 }

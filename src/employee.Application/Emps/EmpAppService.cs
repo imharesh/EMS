@@ -1,4 +1,5 @@
-﻿using System;
+﻿using employee.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace employee.Emps;
 public class EmpAppService :
      CrudAppService<
         Emp, //The Book entity
-        EmpDto, //Used to show books
+        EmpDto, //Used to show Books
         Guid, //Primary key of the book entity
         PagedAndSortedResultRequestDto, //Used for paging/sorting
         CreateUpdateEmpDto>, //Used to create/update a book
@@ -22,6 +23,10 @@ public class EmpAppService :
     public EmpAppService(IRepository<Emp, Guid> repository)
        : base(repository)
     {
-
+         GetPolicyName = employeePermissions.Emps.Default;
+        GetListPolicyName = employeePermissions.Emps.Default;
+        CreatePolicyName = employeePermissions.Emps.Create;
+        UpdatePolicyName = employeePermissions.Emps.Edit;
+        DeletePolicyName = employeePermissions.Emps.Delete;
     }
 }

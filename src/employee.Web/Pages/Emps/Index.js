@@ -19,12 +19,14 @@
                             [
                                 {
                                     text: l('Edit'),
+                                    visible: abp.auth.isGranted('employee.Emps.Edit'), //CHECK for the PERMISSION
                                     action: function (data) {
                                         editModal.open({ id: data.record.id });
                                     }
                                 },
                                 {
                                     text: l('Delete'),
+                                    visible: abp.auth.isGranted('employee.Emps.Delete'),
                                     confirmMessage: function (data) {
                                         return l(
                                             'EmpDeletionConfirmationMessage',

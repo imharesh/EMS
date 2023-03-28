@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using employee.Localization;
 using employee.MultiTenancy;
+using employee.Permissions;
+using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Identity.Web.Navigation;
 using Volo.Abp.SettingManagement.Web.Navigation;
 using Volo.Abp.TenantManagement.Web.Navigation;
@@ -44,7 +46,7 @@ new ApplicationMenuItem(
         "employee.Emps",
         l["Emps"],
         url: "/Emps"
-    )
+    ).RequirePermissions(employeePermissions.Emps.Default)
 )
 );
 

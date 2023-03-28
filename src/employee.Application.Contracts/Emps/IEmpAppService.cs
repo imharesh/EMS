@@ -6,7 +6,7 @@ namespace employee.Emps;
 
  public interface IEmpAppService :
     ICrudAppService< //Defines CRUD methods
-        EmpDto, //Used to show books
+        EmpDto, //Used to show Emps
         Guid, //Primary key of the book entity
         PagedAndSortedResultRequestDto, //Used for paging/sorting
         CreateUpdateEmpDto> //Used to create/update a book
