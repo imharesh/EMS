@@ -1,4 +1,19 @@
-﻿@page
-@model employee.Web.Pages.Emps.IndexModel
-@{
+﻿
+@page
+@using employee.Localization
+@using employee.Web.Pages.Emps
+@using Microsoft.Extensions.Localization
+@model IndexModel
+@inject IStringLocalizer<employeeResource> L
+@section scripts
+{
+    <abp-script src="/Pages/Emps/Index.js" />
 }
+<abp-card>
+    <abp-card-header>
+        <h2>@L["Emps"]</h2>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EmpsTable"></abp-table>
+    </abp-card-body>
+</abp-card>
