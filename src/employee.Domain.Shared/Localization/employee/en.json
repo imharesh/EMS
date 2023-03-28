@@ -1,0 +1,31 @@
+{
+  "Culture": "en",
+  "Texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:BookStore": "employee",
+    "Menu:Books": "Emps",
+    "Actions": "Actions",
+    "Close": "Close",
+    "Delete": "Delete",
+    "Edit": "Edit",
+    "PublishDate": "Publish date",
+    "NewEmp": "New emp",
+    "Name": "Name",
+    "Type": "Type",
+    "Salary": "Salary",
+    "CreationTime": "Creation time",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
+    "Enum:Department.0": "Undefined",
+    "Enum:Department.1": "Adventure",
+    "Enum:Department.2": "Biography",
+    "Enum:Department.3": "Dystopia",
+    "Enum:Department.4": "Fantastic",
+    "Enum:Department.5": "Horror",
+    "Enum:Department.6": "Science",
+    "Enum:Department.7": "Science fiction",
+    "Enum:Department.8": "Poetry"
+  }
+}
