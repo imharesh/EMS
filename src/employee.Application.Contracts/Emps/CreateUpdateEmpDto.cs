@@ -5,7 +5,10 @@ namespace employee.Emps
 {
     public class CreateUpdateEmpDto
     {
-      [Required]
+
+        public Guid HRId { get; set; }
+
+        [Required]
       [StringLength(128)]
       public string Name { get; set; }
 
@@ -19,5 +22,6 @@ namespace employee.Emps
         [Required]
         public Department Type { get; set; } = Department.Undefined;
 
+       
     }
 }

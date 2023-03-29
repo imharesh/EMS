@@ -47,7 +47,13 @@ new ApplicationMenuItem(
         l["Emps"],
         url: "/Emps"
     ).RequirePermissions(employeePermissions.Emps.Default)
-)
+).AddItem( // ADDED THE NEW "AUTHORS" MENU ITEM UNDER THE "BOOK STORE" MENU
+        new ApplicationMenuItem(
+            "employee.HRS",
+            l["Menu:HRS"],
+            url: "/HRS"
+        ).RequirePermissions(employeePermissions.Emps.Default)
+    )
 );
 
 

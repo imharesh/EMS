@@ -38,7 +38,13 @@
     "Permission:HRS": "HRS Management",
     "Permission:HRS.Create": "Creating new HRS",
     "Permission:HRS.Edit": "Editing the HRS",
-    "Permission:HRS.Delete": "Deleting the HRS"
+    "Permission:HRS.Delete": "Deleting the HRS",
+    "Menu:HRS": "HRS",
+    "HRS": "HRS",
+    "HRDeletionConfirmationMessage": "Are you sure to delete the HRS '{0}'?",
+    "HireDate": "Hire date",
+    "NewHR": "New HR"
+
 
 
 

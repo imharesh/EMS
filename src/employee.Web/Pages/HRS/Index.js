@@ -1,16 +1,16 @@
 ﻿$(function () {
     var l = abp.localization.getResource('employee');
-    var createModal = new abp.ModalManager(abp.appPath + 'Emps/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + 'Emps/EditModal');
+    var createModal = new abp.ModalManager(abp.appPath + 'HRS/CreateModal');
+    var editModal = new abp.ModalManager(abp.appPath + 'HRS/EditModal');
 
-    var dataTable = $('#EmpsTable').DataTable(
+    var dataTable = $('#HRSTable').DataTable(
         abp.libs.datatables.normalizeConfiguration({
             serverSide: true,
             paging: true,
             order: [[1, "asc"]],
             searching: false,
             scrollX: true,
-            ajax: abp.libs.datatables.createAjax(employee.emps.emp.getList),
+            ajax: abp.libs.datatables.createAjax(employee.hrs.hr.getList),
             columnDefs: [
                 {
                     title: l('Actions'),
@@ -19,22 +19,24 @@
                             [
                                 {
                                     text: l('Edit'),
-                                    visible: abp.auth.isGranted('employee.Emps.Edit'), //CHECK for the PERMISSION
+                                    visible:
+                                        abp.auth.isGranted('employee.HRS.Edit'),
                                     action: function (data) {
                                         editModal.open({ id: data.record.id });
                                     }
                                 },
                                 {
                                     text: l('Delete'),
-                                    visible: abp.auth.isGranted('employee.Emps.Delete'),
+                                    visible:
+                                        abp.auth.isGranted('employee.HRS.Delete'),
                                     confirmMessage: function (data) {
                                         return l(
-                                            'EmpDeletionConfirmationMessage',
+                                            'HRSDeletionConfirmationMessage',
                                             data.record.name
                                         );
                                     },
                                     action: function (data) {
-                                            employee.emps.emp
+                                        employee.hrs.hr
                                             .delete(data.record.id)
                                             .then(function () {
                                                 abp.notify.info(
@@ -52,30 +54,25 @@
                     data: "name"
                 },
                 {
-                    title: l('HR'),
-                    data: "hrName"
-                },
-                {
-                    title: l('Type'),
-                    data: "type",
+                    title: l('HireDate'),
+                    data: "hireDate",
                     render: function (data) {
-                        return l('Enum:Department.' + data);
+                        return luxon
+                            .DateTime
+                            .fromISO(data, {
+                                locale: abp.localization.currentCulture.name
+                            }).toLocaleString();
                     }
                 },
+                {
+                    title: l('Desc'),
+                    data: "desc"
+                }
 
-                {
-                    title: l('Age'),
-                    data: "age"
-                },
-                {
-                    title: l('Salary'),
-                    data: "salary"
-                },
-               
+
             ]
         })
     );
-    var createModal = new abp.ModalManager(abp.appPath + 'Emps/CreateModal');
 
     createModal.onResult(function () {
         dataTable.ajax.reload();
@@ -85,9 +82,8 @@
         dataTable.ajax.reload();
     });
 
-    $('#NewEmpButton').click(function (e) {
+    $('#NewHRSButton').click(function (e) {
         e.preventDefault();
         createModal.open();
     });
-
 });

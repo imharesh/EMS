@@ -14,6 +14,7 @@ public class employeeApplicationAutoMapperProfile : Profile
         CreateMap<Emp, EmpDto>();
         CreateMap<CreateUpdateEmpDto, Emp>();
         CreateMap<HR, HRDto>();
+        CreateMap<HR, HRLookupDto>();
 
     }
 }

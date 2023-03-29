@@ -1,0 +1,38 @@
+﻿
+@page
+@using employee.Localization
+@using employee.Permissions
+@using employee.Web.Pages.HRS
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<employeeResource> L
+@inject IAuthorizationService AuthorizationService
+@model IndexModel
+
+@section scripts
+{
+    <abp-script src="/Pages/HRS/Index.js"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["HRS"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-end">
+                @if (await AuthorizationService
+                    .IsGrantedAsync(employeePermissions.HRS.Create))
+                {
+                    <abp-button id="NewHRSButton"
+                                text="@L["NewHR"].Value"
+                                icon="plus"
+                                button-type="Primary"/>
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="HRSTable"></abp-table>
+    </abp-card-body>
+</abp-card>

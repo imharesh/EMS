@@ -17,8 +17,9 @@ namespace employee.Emps
 
         public Department Type { get; set; }
 
-        
+        public Guid HRId { get; set; }
 
-     
+
+
     }
 }

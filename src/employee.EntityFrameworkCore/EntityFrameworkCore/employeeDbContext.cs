@@ -86,6 +86,8 @@ public class employeeDbContext :
             b.ToTable(employeeConsts.DbTablePrefix + "Employee", employeeConsts.DbSchema);
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+
+            b.HasOne<HR>().WithMany().HasForeignKey(x => x.HRId).IsRequired();
         });
 
 
