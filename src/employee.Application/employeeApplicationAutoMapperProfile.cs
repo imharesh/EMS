@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using employee.Emps;
+using employee.HRS;
 
 namespace employee;
 
@@ -12,6 +13,7 @@ public class employeeApplicationAutoMapperProfile : Profile
          * into multiple profile classes for a better organization. */
         CreateMap<Emp, EmpDto>();
         CreateMap<CreateUpdateEmpDto, Emp>();
+        CreateMap<HR, HRDto>();
 
     }
 }

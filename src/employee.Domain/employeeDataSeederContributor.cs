@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using employee.Emps;
+using employee.HRS;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
@@ -11,10 +12,14 @@ namespace employee
      : IDataSeedContributor, ITransientDependency
     {
         private readonly IRepository<Emp, Guid> _empRepository;
-
-        public employeeDataSeederContributor(IRepository<Emp, Guid> empRepository)
+        private readonly IHRRepository _hrRepository;
+        private readonly HRManager _hrManager;
+        public employeeDataSeederContributor(IRepository<Emp, Guid> empRepository, IHRRepository authorRepository,
+        HRManager authorManager)
         {
             _empRepository = empRepository;
+            _hrRepository = authorRepository;
+            _hrManager = authorManager;
         }
 
         public async Task SeedAsync(DataSeedContext context)
@@ -43,6 +48,25 @@ namespace employee
                       
                     },
                     autoSave: true
+                );
+            }
+
+            if (await _hrRepository.GetCountAsync() <= 0)
+            {
+                await _hrRepository.InsertAsync(
+                    await _hrManager.CreateAsync(
+                        "User1 user1",
+                        new DateTime(1903, 06, 25),
+                        "Nineteen Eighty-Four (1949)."
+                    )
+                );
+
+                await _hrRepository.InsertAsync(
+                    await _hrManager.CreateAsync(
+                        "User2 user2",
+                        new DateTime(1952, 03, 11),
+                        "self-proclaimed 'radical atheist'."
+                    )
                 );
             }
         }

@@ -33,7 +33,14 @@
     "Permission:Emps": "Emps Management",
     "Permission:Emps.Create": "Creating new Emps",
     "Permission:Emps.Edit": "Editing the Emps",
-    "Permission:Emps.Delete": "Deleting the Emps"
+    "Permission:Emps.Delete": "Deleting the Emps",
+    "employee:00001": "There is already an author with the same name: {name}",
+    "Permission:HRS": "HRS Management",
+    "Permission:HRS.Create": "Creating new HRS",
+    "Permission:HRS.Edit": "Editing the HRS",
+    "Permission:HRS.Delete": "Deleting the HRS"
+
+
 
   }
 }
